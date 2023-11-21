@@ -1,15 +1,38 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import Login from './Routage/Login';
+import Signup from './Routage/Signup';
+import NoPage from './Routage/NoPage';
+import Main from './Main';
+import logo from '../Assets/Images/head-logo.png'
 
-function Head() {
+function Head(){
+    const navigate = useNavigate()
+    const redirectToSignUp = () =>{
+        navigate('/signup')
+    }
+    const redirectToLogin = () =>{
+        navigate('/login')
+    }
+    const redirectToHome = () =>{
+        navigate('/')
+    }
     return (
         <div className="head">
-            <button className="souhait btn btn-primary">
-                <i class="fa-regular fa-heart"></i>
-            </button>
-            <button className="view btn btn-danger">Change view</button>
-            <button className="sign btn btn-success">Sign up</button>
-            <button className="login btn btn-danger">Log in</button>
+            <div className="traits-container">
+                <div className="trait-blanc"></div>
+                <div className="trait-blanc"></div>
+                <div className="trait-blanc"></div>
+            </div>
+            <div className="head-logo">
+                <img src={logo} onClick={redirectToHome}/>
+            </div>
+            <div className="home-connexion">
+                <button className="btn-signup" onClick={redirectToSignUp}>Sign up</button>
+                <button className="btn-login btn btn-warning btn-lg" onClick={redirectToLogin}>Log in</button>
+            </div>
         </div>
     )
 }

@@ -38,8 +38,8 @@ function Contacts() {
     return (
         <div className="contacts">
             {
-                data.map((item)=>{
-                    return <Contact img={item.img} name={item.name} message={item.lastMessage} connexion={item.lastConnexion}/>
+                data.map((item, index)=>{
+                    return <Contact key={index} img={item.img} name={item.name} message={item.lastMessage} connexion={item.lastConnexion}/>
                 })
             }
         </div>

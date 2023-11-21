@@ -8,16 +8,21 @@ import emojiContext from './EmojiContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSadTear } from '@fortawesome/free-solid-svg-icons';
 
-function Chat() {
+function Chat(props) {
     //const emojiContext = createContext()
+    //const [friend, setFriend] = useState({})
     const [color, setColor] = useState("")
     const [emoji, setEmoji] = useState(faSadTear)
     const handleColor = (data) =>{
         setColor(data)
     }
+    const setfriend = (para) =>{
+        //setFriend(para)
+        props.friend(para)
+    }
     return (
         <div className="chat">
-            <Search/>
+            <Search friend={(para)=>{setfriend(para)}}/>
             <Contacts/>
             <emojiContext.Provider value = {emoji}>
                 <Messages color={color}/>

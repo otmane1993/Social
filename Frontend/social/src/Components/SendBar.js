@@ -30,17 +30,17 @@ function SendBar(props){
     return (
         <div className="send-bar">
             <button>
-                <FontAwesomeIcon icon={faVideo} />
+                <FontAwesomeIcon icon={faVideo} className="emoji-send"/>
             </button>
             <button>
-                <FontAwesomeIcon icon={faDownload}/>
+                <FontAwesomeIcon icon={faDownload} className="emoji-send"/>
             </button>
             <input type="text" className="form-control" placeholder="Type something there..........." onKeyDown={handleKeyDown} onChange={handleChange}/>
             <button onClick={sendWithPaper}>
-                <FontAwesomeIcon onClick={sendWithPaper} icon={faPaperPlane} style={{color:'blue'}}/>
+                <FontAwesomeIcon onClick={sendWithPaper} className="emoji-send" icon={faPaperPlane} style={{color:'blue'}}/>
             </button>
             <button onClick={sendEmoji}>
-                <FontAwesomeIcon icon={emoji} onClick={sendEmoji}/>
+                <FontAwesomeIcon icon={emoji} className="emoji-send" onClick={sendEmoji}/>
             </button>
         </div>
     )
